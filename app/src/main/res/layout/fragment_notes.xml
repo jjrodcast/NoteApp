@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:focusableInTouchMode="true"
+    tools:context=".features.home.NotesFragment">
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/leftBarrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="left"
+        app:barrierMargin="@dimen/ds_inset_normal"
+        app:constraint_referenced_ids="titleNote"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/topBarrier"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:barrierDirection="top"
+        app:barrierMargin="@dimen/ds_inset_large"
+        app:constraint_referenced_ids="titleNote"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/rightGuideline"
+        android:layout_width="16dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/ds_inset_normal" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/titleNote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:text="@string/title_notes"
+        android:textAppearance="?attr/textAppearanceHeadline4"
+        app:layout_constraintStart_toEndOf="@id/leftBarrier"
+        app:layout_constraintTop_toBottomOf="@id/topBarrier" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/searchIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_rounded"
+        android:padding="@dimen/ds_inset_medium"
+        app:layout_constraintBottom_toBottomOf="@+id/titleNote"
+        app:layout_constraintEnd_toStartOf="@id/rightGuideline"
+        app:layout_constraintTop_toTopOf="@+id/titleNote"
+        app:srcCompat='@drawable/ic_search' />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/bottomBarrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:barrierMargin="@dimen/ds_inset_normal"
+        app:constraint_referenced_ids="titleNote" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvNotes"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/rightGuideline"
+        app:layout_constraintStart_toEndOf="@id/leftBarrier"
+        app:layout_constraintTop_toBottomOf="@id/bottomBarrier"
+        tools:itemCount="3"
+        tools:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+        tools:listitem="@layout/item_note"
+        tools:spanCount="2" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabCreateNote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/ds_inset_normal"
+        android:contentDescription="@string/fab_content_description"
+        app:backgroundTint="?attr/colorSecondaryVariant"
+        app:elevation="@dimen/ds_elevation"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/rightGuideline"
+        app:srcCompat="@drawable/ic_add" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,53 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Theme.FoodDelivery" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <item name="colorSecondary">@color/purple_200</item>
+        <item name="colorSecondaryVariant">@color/purple_500</item>
+        <item name="colorOnSecondary">@color/white</item>
+
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:statusBarColor">@android:color/white</item>
+        <item name="android:navigationBarColor">@color/white</item>
+
+        <item name="textAppearanceBody2">@style/TextAppearanceBody2</item>
+
+        <item name="textAppearanceHeadline4">@style/TextAppearanceHeadline4</item>
+        <item name="textAppearanceHeadline6">@style/TextAppearanceHeadline6</item>
+
+        <item name="textAppearanceSubtitle1">@style/TextAppearanceSubtitle1</item>
+
+    </style>
+
+    <style name="TextAppearanceSubtitle1" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="fontFamily">@font/poppins_regular</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="TextAppearanceBody2" parent="TextAppearance.MaterialComponents.Body2">
+        <item name="fontFamily">@font/poppins_regular</item>
+    </style>
+
+    <style name="TextAppearanceHeadline4" parent="TextAppearance.MaterialComponents.Headline4">
+        <item name="fontFamily">@font/poppins_regular</item>
+    </style>
+
+    <style name="TextAppearanceHeadline6" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="fontFamily">@font/poppins_regular</item>
+        <item name="textAllCaps">false</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="App.MaterialComponentButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:textColor">@color/gray_custom</item>
+        <item name="fontFamily">@font/poppins_regular</item>
+        <item name="textAllCaps">false</item>
+        <item name="rippleColor">?attr/colorControlHighlight</item>
+        <item name="backgroundTint">@drawable/ds_btn_bg_color_selector</item>
+    </style>
+</resources>

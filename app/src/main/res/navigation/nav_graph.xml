@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/notesFragment">
+
+    <fragment
+        android:id="@+id/notesFragment"
+        android:name="com.jjrodcast.note.features.home.NotesFragment"
+        android:label="fragment_notes"
+        tools:layout="@layout/fragment_notes">
+
+        <action
+            android:id="@+id/action_to_create_update_note"
+            app:destination="@id/createNoteFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/createNoteFragment"
+        android:name="com.jjrodcast.note.features.create.CreateNoteFragment"
+        android:label="CreateNoteFragment"
+        tools:layout="@layout/fragment_create_note">
+
+        <argument
+            android:name="noteId"
+            android:defaultValue="0L"
+            app:argType="long" />
+
+        <action
+            android:id="@+id/action_to_list_notes"
+            app:destination="@id/notesFragment"
+            app:popUpTo="@+id/notesFragment"
+            app:popUpToInclusive="true" />
+
+    </fragment>
+</navigation>

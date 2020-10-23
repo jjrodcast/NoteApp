@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="ds_inset_tiny">2dp</dimen>
+    <dimen name="ds_inset_small">4dp</dimen>
+    <dimen name="ds_inset_medium">8dp</dimen>
+    <dimen name="ds_inset_normal">16dp</dimen>
+    <dimen name="ds_inset_large">24dp</dimen>
+    <dimen name="ds_inset_xlarge">28dp</dimen>
+    <dimen name="ds_inset_big">32dp</dimen>
+
+    <dimen name="ds_elevation_tiny">2dp</dimen>
+    <dimen name="ds_elevation">4dp</dimen>
+</resources>
