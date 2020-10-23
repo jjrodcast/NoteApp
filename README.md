@@ -3,6 +3,13 @@ This simple application illustrate Android Development with Android Jectpack.
 
 Android Note App is a simple app that use many of the Jetpack libraries build with `minSdkVersion = 28` due to Google Play policies updates.
 
+To clarify the project structure, we use 3 modules:
+* **app:** Presentation module that contains all the views and UI Logic with Navigation library.
+* **domain:** Domain module contains all the entities, usecases, repositories interfaces.
+* **data:** Data module contains the database(Room) and DAO, DataMappers, Data Entities, Repositories implementation and Datasources.
+* **buildSrc:** This is not a module itself, this is just a kotlin-dsl that provides all the dependencies for our gradle files. Of course, we use `kotlin-dsl` to build the project.
+
+<br/>
 <p align="center"><img width="578" alt="Poster Android" src="https://user-images.githubusercontent.com/7152507/96949303-353cb200-14ad-11eb-9008-e5637f45faab.png"></p>
 
 
