@@ -3,8 +3,7 @@ This simple application illustrate Android Development with Android Jectpack.
 
 Android Note App is a simple app that use many of the Jetpack libraries build with `minSdkVersion = 28` due to Google Play policies updates.
 
-<p align="center">
-<img width="578" alt="Captura de Pantalla 2020-10-22 a la(s) 21 25 57" src="https://user-images.githubusercontent.com/7152507/96949303-353cb200-14ad-11eb-9008-e5637f45faab.png"></p>
+<p align="center"><img width="578" alt="Poster Android" src="https://user-images.githubusercontent.com/7152507/96949303-353cb200-14ad-11eb-9008-e5637f45faab.png"></p>
 
 
 ## Introduction
@@ -13,6 +12,21 @@ As you know Google suggest the usage of Android Jetpack libraries to develop hig
 We use additional features such as Flow with Coroutines and some customization with Day/Night themes.
 
 ## Screenshots
+
+### Day: Modo normal
+<p align="center">
+ <img height="380" alt="Pantalla Listado de Nota en Modo Day" src="https://user-images.githubusercontent.com/7152507/96952424-74223600-14b4-11eb-8e0b-550aee69d706.jpg">
+ <img height="380" alt="Pantalla Crear Nota en Modo Day" src="https://user-images.githubusercontent.com/7152507/96952413-71274580-14b4-11eb-9107-a1da7a45a828.jpg">
+ <img height="380" alt="Pantalla Eliminar Nota en Modo Day" src="https://user-images.githubusercontent.com/7152507/96952422-73899f80-14b4-11eb-8709-9cdcdbb4d80d.jpg">
+</p>
+
+### Night: Modo oscuro
+<p align="center">
+ <img height="380" alt="Pantalla Listado de Nota en Modo Night" src="https://user-images.githubusercontent.com/7152507/96952407-6d93be80-14b4-11eb-9846-bb0437a47ffb.jpg">
+ <img height="380" alt="Pantalla Crear Nota en Modo Night" src="https://user-images.githubusercontent.com/7152507/96952418-72587280-14b4-11eb-8624-35d34db0aba5.jpg">
+ <img height="380" alt="Pantalla Eliminar Nota en Modo Night" src="https://user-images.githubusercontent.com/7152507/96952420-72f10900-14b4-11eb-80e7-2676a1895a1f.jpg">
+</p>
+
 
 ## Libraries
 * [Architecture](https://developer.android.com/topic/libraries/architecture) - Android architecture components are a collection of libraries that help you design robust, testable, and maintainable apps.
