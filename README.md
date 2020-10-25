@@ -14,7 +14,7 @@ To clarify the project structure, we use 3 modules:
 
 
 ## Introduction
-As you know Google suggest the usage of Android Jetpack libraries to develop high performance applications with the lastest features that it provides.
+As you know Google suggest the use of Android Jetpack libraries to develop high performance applications with the lastest features that it provides.
 
 We use additional features such as Flow with Coroutines and some customization with Day/Night themes.
 
@@ -57,7 +57,7 @@ We use additional features such as Flow with Coroutines and some customization w
   * [Coroutines](https://developer.android.com/kotlin/coroutines) - A coroutine is a concurrency design pattern that you can use on Android to simplify code that executes asynchronously.
 
 ## Future work
-This repository is still in progress, the following functionality are:
+This repository is still in progress, the following functionalities are:
 
 * ***Testing:** In this feature we will implement unit testing for all the features and for dependency injection with Hilt Test*
 * ***Search:** This feature is still in progress for searching notes in the main screen*
