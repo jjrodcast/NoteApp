@@ -59,7 +59,7 @@ We use additional features such as Flow with Coroutines and some customization w
 ## Future work
 This repository is still in progress, the following functionalities are:
 
-* ***Testing:** In this feature we will implement unit testing for all the features and for dependency injection with Hilt Test*
+* ***Testing:** In this feature we will implement unit testing for all the features and for dependency injection with Hilt Test. Last changes contains some test for DAO with Room (data module) and Repository Test (app module)*
 * ***Search:** This feature is still in progress for searching notes in the main screen*
 * ***Paging:** For this feature we will implement Paging with the Paging library 2 or maybe 3*
 
