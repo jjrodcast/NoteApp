@@ -55,7 +55,8 @@ We use additional features such as Flow with Coroutines and some customization w
   * [Material Components](https://material.io/components) - Material Components for Android (MDC-Android) help developers execute Material Design.
   * [Hilt](https://developer.android.com/training/dependency-injection/hilt-android) - Hilt is a dependency injection library for Android that reduces the boilerplate of doing manual dependency injection in your project.
   * [Coroutines](https://developer.android.com/kotlin/coroutines) - A coroutine is a concurrency design pattern that you can use on Android to simplify code that executes asynchronously.
-
+  * [Kluent](https://github.com/MarkusAmshove/Kluent) - Kluent is a "Fluent Assertions" library written specifically for Kotlin. This library is used for Testing.
+  
 ## Future work
 This repository is still in progress, the following functionalities are:
 
