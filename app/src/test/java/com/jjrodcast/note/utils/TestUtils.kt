@@ -9,6 +9,8 @@ import java.util.concurrent.CountDownLatch
 import java.util.concurrent.TimeUnit
 import java.util.concurrent.TimeoutException
 
+const val ZERO = 0L
+
 object TestUtils {
     val note = Note(
         id = 1,
@@ -39,7 +41,7 @@ fun <T> LiveData<T>.getOrAwaitValue(
     }
     observeForever(observer)
 
-    if(!latch.await(time, timeUnit)) throw TimeoutException("LiveData never change")
+    if (!latch.await(time, timeUnit)) throw TimeoutException("LiveData never change")
 
     return data as T
 }

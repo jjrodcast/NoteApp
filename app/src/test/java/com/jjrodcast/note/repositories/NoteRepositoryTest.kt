@@ -6,11 +6,14 @@ import com.jjrodcast.data.repositories.NoteDataRepository
 import com.jjrodcast.domain.repositories.NoteRepository
 import com.jjrodcast.note.base.BaseTest
 import com.jjrodcast.note.utils.TestUtils
+import com.jjrodcast.note.utils.ZERO
 import io.mockk.*
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.test.runBlockingTest
 import org.amshove.kluent.any
+import org.amshove.kluent.shouldBeEqualTo
+import org.amshove.kluent.shouldHaveSize
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -57,14 +60,19 @@ class NoteRepositoryTest : BaseTest() {
     }
 
     @Test
-    fun `Test For Get Notes`() {
-        repository.getNotes()
+    fun `Test For Get Notes`() = runBlockingTest {
+        val notes = repository.getNotes().toList().flatten()
+        notes shouldHaveSize TestUtils.notes.size
         every { noteDataSource.getNotes() }
     }
 
     @Test
-    fun `Test For Get Note By Id`() {
-        repository.getNoteById(any())
+    fun `Test For Get Note By Id`() = runBlockingTest {
+        val noteId = repository.getNoteById(any()).take(1).toList().firstOrNull()?.id ?: ZERO
+
+        noteId shouldBeEqualTo TestUtils.note.id
+
         every { noteDataSource.getNoteById(any()) }
+
     }
 }
