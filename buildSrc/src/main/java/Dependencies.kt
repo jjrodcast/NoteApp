@@ -37,9 +37,14 @@ object Dependencies {
     const val hiltLifeCycle = "androidx.hilt:hilt-lifecycle-viewmodel:${Versions.hiltLifeCycle}"
     const val hiltCompiler = "com.google.dagger:hilt-android-compiler:${Versions.hilt}"
     const val hiltLifeCycleCompiler = "androidx.hilt:hilt-compiler:${Versions.hiltLifeCycle}"
+
     // Testing
+    const val testCore = "androidx.test:core:${Versions.testCore}"
+    const val kluent = "org.amshove.kluent:kluent-android:${Versions.kluent}"
+    const val mockk = "io.mockk:mockk:${Versions.mockk}"
     const val junit = "junit:junit:${Versions.junit}"
     const val junitExt = "androidx.test.ext:junit:${Versions.junitExt}"
     const val espressoCore = "androidx.test.espresso:espresso-core:${Versions.espresso}"
+    const val coroutinesTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutinesTest}"
     const val liveDataTest = "androidx.arch.core:core-testing:${Versions.liveDataTest}"
 }

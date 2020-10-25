@@ -1,5 +1,6 @@
 object Versions {
 
+
     const val gradle = "4.1.0"
     const val kotlin = "1.4.10"
     const val coreKtx = "1.3.2"
@@ -18,6 +19,10 @@ object Versions {
     const val hiltLifeCycle = "1.0.0-alpha01"
 
     //Testing
+    const val testCore = "1.0.0"
+    const val kluent = "1.63"
+    const val coroutinesTest = "1.4.0-M1"
+    const val mockk = "1.10.2"
     const val junit = "4.13.1"
     const val junitExt = "1.1.2"
     const val espresso = "3.3.0"

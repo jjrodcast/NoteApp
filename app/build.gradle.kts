@@ -78,8 +78,13 @@ dependencies {
     kapt(Dependencies.hiltCompiler)
     kapt(Dependencies.hiltLifeCycleCompiler)
 
+    testImplementation(Dependencies.testCore)
+    testImplementation(Dependencies.kluent)
     testImplementation(Dependencies.liveDataTest)
+    testImplementation(Dependencies.mockk)
+    testImplementation(Dependencies.coroutinesTest)
     testImplementation(Dependencies.junit)
+
     androidTestImplementation(Dependencies.junitExt)
     androidTestImplementation(Dependencies.espressoCore)
 }
