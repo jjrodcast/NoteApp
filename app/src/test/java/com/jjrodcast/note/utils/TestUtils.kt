@@ -20,6 +20,9 @@ object TestUtils {
         date = Date().time
     )
 
+    val noteInvalid = note.copy(title = "", description = "")
+    val noteNew = note.copy(id = 0)
+
     val notes = listOf(note, note.copy(id = 2))
 }
 

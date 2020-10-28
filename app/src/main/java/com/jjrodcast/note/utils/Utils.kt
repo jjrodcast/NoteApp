@@ -3,13 +3,18 @@ package com.jjrodcast.note.utils
 import android.content.Context
 import androidx.annotation.ColorRes
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.observe
 import com.jjrodcast.note.R
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.collections.ArrayList
 import kotlin.random.Random
 
 const val defaultFormat = "MMM dd, yyyy"
+
+fun <T> MutableLiveData<T>.asLiveData(): LiveData<T> = this
 
 fun <E> ArrayList<E>.update(elements: Collection<E>) {
     this.clear()
@@ -37,3 +42,8 @@ fun Context.createRandomColor(): Int {
     }
     return getCompatColor(color)
 }
+
+inline fun <reified T> Fragment.observeState(
+    state: LiveData<T>,
+    crossinline observer: (T) -> Unit
+) = state.observe(viewLifecycleOwner) { observer.invoke(it) }

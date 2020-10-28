@@ -15,6 +15,7 @@ import com.jjrodcast.note.features.create.viewmodel.CreateUpdateNoteViewModel
 import com.jjrodcast.note.features.create.viewmodel.CreateUpdateState
 import com.jjrodcast.note.utils.createRandomColor
 import com.jjrodcast.note.utils.isNew
+import com.jjrodcast.note.utils.observeState
 import com.jjrodcast.note.utils.toast
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
@@ -65,14 +66,10 @@ class CreateNoteFragment : Fragment() {
 
     private fun configureSearchNote() = noteViewModel.getNote(args.noteId)
 
-    private fun observeChanges() = with(binding) {
-        noteViewModel.state.observe(viewLifecycleOwner) {
+    private fun observeChanges() {
+        observeState(noteViewModel.state) {
             when (it) {
-                is CreateUpdateState.SearchResponse -> {
-                    note = it.note
-                    titleNote.setText(note.title)
-                    descriptionNote.setText(note.description)
-                }
+                is CreateUpdateState.SearchResponse -> doOnSearchResponse(it.note)
                 is CreateUpdateState.ModelNotValid -> toast(getString(R.string.model_not_valid))
                 is CreateUpdateState.Done -> {
                     navigateToHome()
@@ -81,6 +78,12 @@ class CreateNoteFragment : Fragment() {
                 else -> Unit
             }
         }
+    }
+
+    private fun doOnSearchResponse(currentNote: Note) = with(binding) {
+        note = currentNote
+        titleNote.setText(note.title)
+        descriptionNote.setText(note.description)
     }
 
     private fun navigateToHome() {

@@ -15,6 +15,7 @@ import com.jjrodcast.note.features.home.viewmodel.ListNoteViewModel
 import com.jjrodcast.note.utils.GridInsideItemDecoration
 import com.jjrodcast.note.utils.SPAN_COUNT
 import com.jjrodcast.note.utils.hideKeyboard
+import com.jjrodcast.note.utils.observeState
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -75,9 +76,7 @@ class NotesFragment : Fragment() {
     }
 
     private fun observeNoteChanges() {
-        noteViewModel.notes.observe(viewLifecycleOwner) {
-            noteAdapter.submitList(it)
-        }
+        observeState(noteViewModel.notes) { noteAdapter.submitList(it) }
     }
 
     private fun configureCreateNote() = with(binding) {

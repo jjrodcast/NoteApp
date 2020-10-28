@@ -4,6 +4,7 @@ import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
 import com.jjrodcast.domain.entities.Note
 import com.jjrodcast.domain.usecases.NoteUseCase
+import com.jjrodcast.note.utils.asLiveData
 import com.jjrodcast.note.utils.io
 import com.jjrodcast.note.utils.isNew
 import kotlinx.coroutines.CoroutineExceptionHandler
@@ -15,8 +16,7 @@ class CreateUpdateNoteViewModel @ViewModelInject constructor(
 ) : ViewModel() {
 
     private val _state = MutableLiveData<CreateUpdateState>()
-    val state: LiveData<CreateUpdateState>
-        get() = _state
+    val state get() = _state.asLiveData()
 
     fun insertOrUpdateNote(note: Note) {
         if (!note.isValid()) _state.value = CreateUpdateState.ModelNotValid

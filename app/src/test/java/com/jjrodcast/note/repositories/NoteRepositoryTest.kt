@@ -1,6 +1,5 @@
 package com.jjrodcast.note.repositories
 
-import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.jjrodcast.data.datasources.NoteDataSource
 import com.jjrodcast.data.repositories.NoteDataRepository
 import com.jjrodcast.domain.repositories.NoteRepository
@@ -9,21 +8,18 @@ import com.jjrodcast.note.utils.TestUtils
 import com.jjrodcast.note.utils.ZERO
 import io.mockk.*
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.flow.take
+import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.test.runBlockingTest
 import org.amshove.kluent.any
 import org.amshove.kluent.shouldBeEqualTo
 import org.amshove.kluent.shouldHaveSize
 import org.junit.Before
-import org.junit.Rule
 import org.junit.Test
 
 @ExperimentalCoroutinesApi
 class NoteRepositoryTest : BaseTest() {
-
-    @Rule
-    @JvmField
-    val instantExecutorRule = InstantTaskExecutorRule()
 
     private val noteDataSource = mockk<NoteDataSource>(relaxed = true)
     private lateinit var repository: NoteRepository

@@ -1,18 +1,23 @@
 package com.jjrodcast.note.base
 
-import kotlinx.coroutines.*
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.TestCoroutineDispatcher
-import kotlinx.coroutines.test.TestCoroutineScope
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.setMain
 import org.junit.After
 import org.junit.Before
-import java.util.concurrent.Executors
+import org.junit.Rule
 
 @ExperimentalCoroutinesApi
 abstract class BaseTest {
 
     protected val testDispatcher = TestCoroutineDispatcher()
+
+    @Rule
+    @JvmField
+    val instantExecutorRule = InstantTaskExecutorRule()
 
     @Before
     open fun setup() {
