@@ -41,7 +41,9 @@ fun <T> LiveData<T>.getOrAwaitValue(
     }
     observeForever(observer)
 
-    if (!latch.await(time, timeUnit)) throw TimeoutException("LiveData never change")
+    if (!latch.await(time, timeUnit)) {
+        throw TimeoutException("LiveData never change")
+    }
 
     return data as T
 }

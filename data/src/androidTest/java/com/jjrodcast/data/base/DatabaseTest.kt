@@ -34,12 +34,12 @@ abstract class DatabaseTest {
 
     @After
     @Throws(Exception::class)
-    fun after() {
+    open fun after() {
         db.close()
         drain()
     }
 
-    fun drain() {
+    private fun drain() {
         countingTaskExecutorRule.drainTasks(5, TimeUnit.SECONDS)
     }
 }

@@ -61,7 +61,8 @@ class NoteDaoTest : DatabaseTest() {
     }
 
     @After
-    fun tearDown() {
+    override fun after() {
+        super.after()
         countingTaskExecutorRule.drainTasks(200, TimeUnit.MILLISECONDS)
         countingTaskExecutorRule.isIdle shouldBeEqualTo true
     }

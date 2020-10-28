@@ -34,8 +34,8 @@ object Dependencies {
 
     // Hilt
     const val hilt = "com.google.dagger:hilt-android:${Versions.hilt}"
-    const val hiltLifeCycle = "androidx.hilt:hilt-lifecycle-viewmodel:${Versions.hiltLifeCycle}"
     const val hiltCompiler = "com.google.dagger:hilt-android-compiler:${Versions.hilt}"
+    const val hiltLifeCycle = "androidx.hilt:hilt-lifecycle-viewmodel:${Versions.hiltLifeCycle}"
     const val hiltLifeCycleCompiler = "androidx.hilt:hilt-compiler:${Versions.hiltLifeCycle}"
 
     // Testing
@@ -47,4 +47,5 @@ object Dependencies {
     const val espressoCore = "androidx.test.espresso:espresso-core:${Versions.espresso}"
     const val coroutinesTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutinesTest}"
     const val liveDataTest = "androidx.arch.core:core-testing:${Versions.liveDataTest}"
+    const val hiltAndroidTest = "com.google.dagger:hilt-android-testing:${Versions.hilt}"
 }
