@@ -1,7 +1,11 @@
-# Android Note App
+# Android Note App with MVI
 This simple application illustrate Android Development with Android Jectpack.
 
 Android Note App is a simple app that use many of the Jetpack libraries build with `minSdkVersion = 28` due to Google Play policies updates.
+
+In this branch we are using MVI pattern:
+<br/>
+<p align="center"><img width="520" alt="MVI Pattern" src="https://user-images.githubusercontent.com/7152507/97626183-783fdd80-19f7-11eb-8b53-7f0e8997a211.png"></p>
 
 To clarify the project structure, we use 3 modules:
 * **app:** Presentation module that contains all the views and UI Logic with Navigation library.
