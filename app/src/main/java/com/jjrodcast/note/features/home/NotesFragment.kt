@@ -11,15 +11,15 @@ import com.jjrodcast.domain.entities.Note
 import com.jjrodcast.note.R
 import com.jjrodcast.note.databinding.FragmentNotesBinding
 import com.jjrodcast.note.features.home.adapter.NoteAdapter
+import com.jjrodcast.note.features.home.states.NoteListIntent
+import com.jjrodcast.note.features.home.states.NoteListState
+import com.jjrodcast.note.mvi.View as MviView
 import com.jjrodcast.note.features.home.viewmodel.ListNoteViewModel
-import com.jjrodcast.note.utils.GridInsideItemDecoration
-import com.jjrodcast.note.utils.SPAN_COUNT
-import com.jjrodcast.note.utils.hideKeyboard
-import com.jjrodcast.note.utils.observeState
+import com.jjrodcast.note.utils.*
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class NotesFragment : Fragment() {
+class NotesFragment : Fragment(), MviView<NoteListState> {
 
     private var _binding: FragmentNotesBinding? = null
     private val binding get() = _binding!!
@@ -46,6 +46,7 @@ class NotesFragment : Fragment() {
         configureCreateNote()
         configureRecycler()
         observeNoteChanges()
+        fetchNotes()
     }
 
     override fun onCreateContextMenu(
@@ -58,7 +59,7 @@ class NotesFragment : Fragment() {
 
     override fun onContextItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.delete -> note?.let { noteViewModel.deleteNote(it) }
+            R.id.delete -> deleteNote()
             else -> Unit
         }
         return true
@@ -76,7 +77,19 @@ class NotesFragment : Fragment() {
     }
 
     private fun observeNoteChanges() {
-        observeState(noteViewModel.notes) { noteAdapter.submitList(it) }
+        observeState(noteViewModel.state) { render(it) }
+    }
+
+    private fun fetchNotes() {
+        onLifeCycleLaunch {
+            noteViewModel.intent.send(NoteListIntent.FetchNotes)
+        }
+    }
+
+    private fun deleteNote() {
+        onLifeCycleLaunch {
+            note?.let { noteViewModel.intent.send(NoteListIntent.DeleteNote(it)) }
+        }
     }
 
     private fun configureCreateNote() = with(binding) {
@@ -92,6 +105,13 @@ class NotesFragment : Fragment() {
     private fun onLongClickNote(view: View, note: Note) {
         this.note = note
         view.showContextMenu()
+    }
+
+    override fun render(state: NoteListState) = when (state) {
+        is NoteListState.Loading -> toast(getString(R.string.loading))
+        is NoteListState.Success -> noteAdapter.submitList(state.notes)
+        is NoteListState.Failure -> toast(getString(R.string.error_message))
+        is NoteListState.Done -> toast(getString(R.string.done))
     }
 
     override fun onDestroyView() {

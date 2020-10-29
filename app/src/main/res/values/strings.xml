@@ -5,8 +5,11 @@
     <string name="fab_content_description">Crear una nota</string>
     <string name="save">Guardar</string>
     <string name="hint_title_note">Título</string>
-    <string name="hint_description_note">Descripción de la nota...</string>
+    <string name="hint_description_note">Descripción de la nota....</string>
+    <string name="error_message">Ocurrió un error</string>
     <string name="model_not_valid">La nota no es válida</string>
     <string name="model_saved">Nota guardada</string>
     <string name="delete">Eliminar Nota</string>
+    <string name="loading">Cargando notas</string>
+    <string name="done">Operación correcta</string>
 </resources>

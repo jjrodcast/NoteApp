@@ -1,3 +1,5 @@
+@file:Suppress("COMPATIBILITY_WARNING")
+
 package com.jjrodcast.note.utils
 
 import android.content.Context
@@ -6,8 +8,10 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.observe
 import com.jjrodcast.note.R
+import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.random.Random
@@ -47,3 +51,8 @@ inline fun <reified T> Fragment.observeState(
     state: LiveData<T>,
     crossinline observer: (T) -> Unit
 ) = state.observe(viewLifecycleOwner) { observer.invoke(it) }
+
+inline fun Fragment.onLifeCycleLaunch(crossinline block: suspend () -> Unit) {
+    lifecycleScope.launch { block.invoke() }
+    Unit
+}
